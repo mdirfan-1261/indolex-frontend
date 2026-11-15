@@ -1,26 +1,178 @@
 @import "tailwindcss";
 
+/* 1. Tailwind v4 Dark Class Variant (Button se switch karne ke liye) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 2. Light Theme Colors (Default) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8FAFC;
+  --foreground: #0F172A;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 3. Dark Theme Colors (Jab .dark class lagegi) */
+.dark {
+  --background: #071326;
+  --foreground: #F8FAFC;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 4. Global Body Styling with Smooth Transition */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-height: 100vh;
+}
+
+/* 5. Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+
+:root:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+
+/* =========================================
+   RECOVERY AGENTS PAGE - DARK THEME
+========================================= */
+
+.dark .recovery-agents-page {
+  background-color: #071326;
+  color: #e2e8f0;
+}
+
+/* Main section backgrounds */
+.dark .recovery-agents-page .bg-white {
+  background-color: #0b1b30 !important;
+}
+
+.dark .recovery-agents-page .bg-slate-50 {
+  background-color: #071326 !important;
+}
+
+.dark .recovery-agents-page .bg-slate-100 {
+  background-color: #13243a !important;
+}
+
+.dark .recovery-agents-page .bg-slate-50\/80,
+.dark .recovery-agents-page .bg-slate-50\/60,
+.dark .recovery-agents-page .bg-slate-50\/50 {
+  background-color: rgba(255, 255, 255, 0.035) !important;
+}
+
+.dark .recovery-agents-page .bg-slate-100\/80 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Text colors */
+.dark .recovery-agents-page .text-slate-900 {
+  color: #f8fafc !important;
+}
+
+.dark .recovery-agents-page .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+
+.dark .recovery-agents-page .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+.dark .recovery-agents-page .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+.dark .recovery-agents-page .text-slate-500,
+.dark .recovery-agents-page .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Borders */
+.dark .recovery-agents-page .border-slate-100,
+.dark .recovery-agents-page .border-slate-200,
+.dark .recovery-agents-page .border-slate-300 {
+  border-color: rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Hover effects */
+.dark .recovery-agents-page .hover\:bg-white:hover {
+  background-color: #172a42 !important;
+}
+
+.dark .recovery-agents-page .hover\:border-slate-300:hover,
+.dark .recovery-agents-page .hover\:border-slate-400:hover {
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+/* Legacy reality cards */
+.dark .recovery-agents-page .bg-red-50\/20 {
+  background-color: rgba(239, 68, 68, 0.06) !important;
+}
+
+/* Status colors */
+.dark .recovery-agents-page .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.10) !important;
+}
+
+.dark .recovery-agents-page .text-emerald-700,
+.dark .recovery-agents-page .text-emerald-800 {
+  color: #6ee7b7 !important;
+}
+
+.dark .recovery-agents-page .border-emerald-200 {
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+.dark .recovery-agents-page .text-red-600 {
+  color: #fca5a5 !important;
+}
+
+/* Blue labels and icons */
+.dark .recovery-agents-page .text-\[\#1e3a8a\] {
+  color: #93c5fd !important;
+}
+
+/* Cards and shadows */
+.dark .recovery-agents-page .shadow-sm,
+.dark .recovery-agents-page .shadow-md,
+.dark .recovery-agents-page .shadow-xl {
+  --tw-shadow-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Execution terminal */
+.dark .recovery-agents-page #execution-docket .bg-white {
+  background-color: #0b1b30 !important;
+}
+
+/* Preserve image overlays and CTA gradient */
+.dark .recovery-agents-page .bg-gradient-to-br {
+  background-image: linear-gradient(
+    to bottom right,
+    #0b1b30,
+    #0b1b30,
+    #172a42
+  );
+}
+
+/* Smooth theme transition */
+.recovery-agents-page section,
+.recovery-agents-page article,
+.recovery-agents-page button,
+.recovery-agents-page h1,
+.recovery-agents-page h2,
+.recovery-agents-page h3,
+.recovery-agents-page p,
+.recovery-agents-page div {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
 }
