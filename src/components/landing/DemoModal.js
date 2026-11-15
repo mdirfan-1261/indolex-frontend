@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { X, Scale, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://indolex-backend.onrender.com/api';
 
 export default function DemoModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);

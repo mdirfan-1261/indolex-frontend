@@ -16,7 +16,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://indolex-backend.onrender.com/api';
 
 // Safe Auth Headers Extractor
 const getAuthHeaders = () => {

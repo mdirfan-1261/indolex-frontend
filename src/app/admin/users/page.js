@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 
 const API_URL = (
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
+  process.env.NEXT_PUBLIC_API_URL || "https://indolex-backend.onrender.com"
 ).replace(/\/+$/, "");
 
 const API_BASE = API_URL.endsWith("/api")

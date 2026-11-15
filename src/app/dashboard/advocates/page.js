@@ -71,7 +71,7 @@ export default function AdvocatesPage() {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
 
-      let url = 'http://localhost:5000/api/advocates';
+      let url = 'https://indolex-backend.onrender.com/api/advocates';
       const params = new URLSearchParams();
       if (searchTerm) params.append('search', searchTerm);
       if (selectedSpec !== 'ALL') params.append('specialization', selectedSpec);
@@ -108,7 +108,7 @@ export default function AdvocatesPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch('http://localhost:5000/api/advocates', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/advocates', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -161,7 +161,7 @@ export default function AdvocatesPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/advocates/${editingAdvocate._id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/advocates/${editingAdvocate._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -193,7 +193,7 @@ export default function AdvocatesPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/advocates/${id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/advocates/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${authToken}` },
       });

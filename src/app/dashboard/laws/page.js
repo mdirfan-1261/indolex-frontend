@@ -67,7 +67,7 @@ export default function LawsPage() {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
 
-      let url = 'http://localhost:5000/api/laws';
+      let url = 'https://indolex-backend.onrender.com/api/laws';
       const params = new URLSearchParams();
       if (searchTerm) params.append('search', searchTerm);
       if (selectedAct !== 'ALL') params.append('actName', selectedAct);
@@ -104,7 +104,7 @@ export default function LawsPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch('http://localhost:5000/api/laws', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/laws', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +151,7 @@ export default function LawsPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/laws/${editingLaw._id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/laws/${editingLaw._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -180,7 +180,7 @@ export default function LawsPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/laws/${id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/laws/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${authToken}` },
       });

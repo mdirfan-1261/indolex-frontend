@@ -70,7 +70,7 @@ function SettingsContent() {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
 
-      const res = await fetch('http://localhost:5000/api/auth/me', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/auth/me', {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -109,7 +109,7 @@ function SettingsContent() {
       setStatusMessage({ type: '', text: '' });
       const authToken = token || localStorage.getItem('indolex_token');
 
-      const res = await fetch('http://localhost:5000/api/auth/profile', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/auth/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -165,7 +165,7 @@ function SettingsContent() {
       setStatusMessage({ type: '', text: '' });
       const authToken = token || localStorage.getItem('indolex_token');
 
-      const res = await fetch('http://localhost:5000/api/auth/change-password', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/auth/change-password', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

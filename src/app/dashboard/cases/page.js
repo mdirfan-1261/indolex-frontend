@@ -76,7 +76,7 @@ export default function LegalCasesPage() {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
 
-      let url = 'http://localhost:5000/api/legal';
+      let url = 'https://indolex-backend.onrender.com/api/legal';
       const params = new URLSearchParams();
       if (searchTerm) params.append('search', searchTerm);
       if (selectedCourt !== 'ALL') params.append('courtType', selectedCourt);
@@ -91,7 +91,7 @@ export default function LegalCasesPage() {
       }
 
       // Fetch Borrowers
-      const resBorrowers = await fetch('http://localhost:5000/api/borrowers', {
+      const resBorrowers = await fetch('https://indolex-backend.onrender.com/api/borrowers', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const dataBorrowers = await resBorrowers.json();
@@ -103,7 +103,7 @@ export default function LegalCasesPage() {
       }
 
       // Fetch Loans
-      const resLoans = await fetch('http://localhost:5000/api/loans', {
+      const resLoans = await fetch('https://indolex-backend.onrender.com/api/loans', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const dataLoans = await resLoans.json();
@@ -145,7 +145,7 @@ export default function LegalCasesPage() {
         claimAmount: Number(formData.claimAmount) * 10000000, // Cr to ₹
       };
 
-      const res = await fetch('http://localhost:5000/api/legal', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/legal', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -202,7 +202,7 @@ export default function LegalCasesPage() {
         claimAmount: Number(formData.claimAmount) * 10000000,
       };
 
-      const res = await fetch(`http://localhost:5000/api/legal/${editingCase._id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/legal/${editingCase._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -231,7 +231,7 @@ export default function LegalCasesPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/legal/${id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/legal/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${authToken}` },
       });

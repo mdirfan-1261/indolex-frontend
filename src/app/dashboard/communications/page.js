@@ -18,7 +18,7 @@ import {
   Eye,
 } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://indolex-backend.onrender.com/api';
 
 /* ── UI-only style tokens ── */
 const card =

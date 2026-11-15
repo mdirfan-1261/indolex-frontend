@@ -27,7 +27,7 @@ export default function RecoveryDashboardPage() {
     try {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch('http://localhost:5000/api/recovery/dashboard-stats', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/recovery/dashboard-stats', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const json = await res.json();

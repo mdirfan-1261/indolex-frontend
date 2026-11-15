@@ -77,7 +77,7 @@ export default function LoansPage() {
       const authToken = token || localStorage.getItem('indolex_token');
 
       // Fetch Loans
-      let url = 'http://localhost:5000/api/loans';
+      let url = 'https://indolex-backend.onrender.com/api/loans';
       const params = new URLSearchParams();
       if (searchTerm) params.append('search', searchTerm);
       if (selectedClassification !== 'ALL') params.append('classification', selectedClassification);
@@ -92,7 +92,7 @@ export default function LoansPage() {
       }
 
       // Fetch Borrowers (for dropdown)
-      const resBorrowers = await fetch('http://localhost:5000/api/borrowers', {
+      const resBorrowers = await fetch('https://indolex-backend.onrender.com/api/borrowers', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const dataBorrowers = await resBorrowers.json();
@@ -139,7 +139,7 @@ export default function LoansPage() {
         dpd: Number(formData.dpd),
       };
 
-      const res = await fetch('http://localhost:5000/api/loans', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/loans', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ export default function LoansPage() {
         dpd: Number(formData.dpd),
       };
 
-      const res = await fetch(`http://localhost:5000/api/loans/${editingLoan._id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/loans/${editingLoan._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -233,7 +233,7 @@ export default function LoansPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/loans/${id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/loans/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${authToken}` },
       });

@@ -71,7 +71,7 @@ export default function TasksPage() {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
 
-      let url = 'http://localhost:5000/api/tasks';
+      let url = 'https://indolex-backend.onrender.com/api/tasks';
       const params = new URLSearchParams();
       if (searchTerm) params.append('search', searchTerm);
       if (selectedPriority !== 'ALL') params.append('priority', selectedPriority);
@@ -87,7 +87,7 @@ export default function TasksPage() {
       }
 
       // Fetch Borrowers
-      const resBorrowers = await fetch('http://localhost:5000/api/borrowers', {
+      const resBorrowers = await fetch('https://indolex-backend.onrender.com/api/borrowers', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const dataBorrowers = await resBorrowers.json();
@@ -118,7 +118,7 @@ export default function TasksPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch('http://localhost:5000/api/tasks', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ export default function TasksPage() {
       const newStatus =
         task.status === 'Completed & Verified' ? 'In Progress' : 'Completed & Verified';
 
-      const res = await fetch(`http://localhost:5000/api/tasks/${task._id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/tasks/${task._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -192,7 +192,7 @@ export default function TasksPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/tasks/${editingTask._id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/tasks/${editingTask._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ export default function TasksPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/tasks/${id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/tasks/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${authToken}` },
       });

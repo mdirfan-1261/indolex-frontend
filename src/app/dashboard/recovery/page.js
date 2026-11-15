@@ -82,7 +82,7 @@ export default function RecoveryDeskPage() {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
 
-      let url = 'http://localhost:5000/api/recovery';
+      let url = 'https://indolex-backend.onrender.com/api/recovery';
       const params = new URLSearchParams();
       if (searchTerm) params.append('search', searchTerm);
       if (selectedAction !== 'ALL') params.append('actionType', selectedAction);
@@ -97,7 +97,7 @@ export default function RecoveryDeskPage() {
       }
 
       // Fetch Borrowers
-      const resBorrowers = await fetch('http://localhost:5000/api/borrowers', {
+      const resBorrowers = await fetch('https://indolex-backend.onrender.com/api/borrowers', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const dataBorrowers = await resBorrowers.json();
@@ -109,7 +109,7 @@ export default function RecoveryDeskPage() {
       }
 
       // Fetch Loans
-      const resLoans = await fetch('http://localhost:5000/api/loans', {
+      const resLoans = await fetch('https://indolex-backend.onrender.com/api/loans', {
         headers: { Authorization: `Bearer ${authToken}` },
       });
       const dataLoans = await resLoans.json();
@@ -153,7 +153,7 @@ export default function RecoveryDeskPage() {
         recoveryAmountRealized: Number(formData.recoveryAmountRealized || 0) * 10000000,
       };
 
-      const res = await fetch('http://localhost:5000/api/recovery', {
+      const res = await fetch('https://indolex-backend.onrender.com/api/recovery', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -209,7 +209,7 @@ export default function RecoveryDeskPage() {
         recoveryAmountRealized: Number(formData.recoveryAmountRealized || 0) * 10000000,
       };
 
-      const res = await fetch(`http://localhost:5000/api/recovery/${editingRecovery._id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/recovery/${editingRecovery._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -238,7 +238,7 @@ export default function RecoveryDeskPage() {
 
     try {
       const authToken = token || localStorage.getItem('indolex_token');
-      const res = await fetch(`http://localhost:5000/api/recovery/${id}`, {
+      const res = await fetch(`https://indolex-backend.onrender.com/api/recovery/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${authToken}` },
       });

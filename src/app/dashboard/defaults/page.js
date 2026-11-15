@@ -32,7 +32,7 @@ export default function DefaultsPage() {
     try {
       setLoading(true);
       const authToken = token || localStorage.getItem('indolex_token');
-      let url = 'http://localhost:5000/api/defaults';
+      let url = 'https://indolex-backend.onrender.com/api/defaults';
       if (selectedBucket !== 'ALL') url += `?bucket=${selectedBucket}`;
 
       const res = await fetch(url, {
