@@ -37,9 +37,9 @@ export default function HomePage() {
       <Footer />
 
       {/* 8. DEMO MODAL */}
-      <DemoModal 
-        isOpen={showDemoModal} 
-        onClose={() => setShowDemoModal(false)} 
+      <DemoModal
+        isOpen={showDemoModal}
+        onClose={() => setShowDemoModal(false)}
       />
     </main>
   );

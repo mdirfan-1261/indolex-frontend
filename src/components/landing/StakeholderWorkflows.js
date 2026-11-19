@@ -58,7 +58,7 @@ export default function StakeholderWorkflows() {
       className="bg-[#FAF8F5] dark:bg-[#071326] py-12 sm:py-16 font-sans border-b border-stone-200 dark:border-slate-800 transition-colors duration-300"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* COMPACT SECTION HEADER */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-0.5 text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-2.5">

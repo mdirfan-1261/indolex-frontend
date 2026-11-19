@@ -10,7 +10,7 @@ export default function NoteworthyIntegration() {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-80 h-80 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* COMPACT AUTHENTIC HEADER */}
         <div className="mb-8">
           <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-[#E05320] mb-1.5">
@@ -24,10 +24,10 @@ export default function NoteworthyIntegration() {
 
         {/* COMPACT HIGH-TECH INTEGRATION CARD */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 bg-gradient-to-br from-[#0C172B] to-[#08101E] p-6 sm:p-8 rounded-2xl border border-slate-800/90 shadow-2xl items-center">
-          
+
           {/* LEFT: LIVE STATUTORY BRIDGE TERMINAL (5 COLS) */}
           <div className="lg:col-span-5 bg-[#060D18] rounded-xl p-6 border border-slate-700/60 flex flex-col justify-between shadow-inner">
-            
+
             {/* STATUS ROW */}
             <div className="flex items-center justify-between mb-6">
               <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
@@ -71,11 +71,11 @@ export default function NoteworthyIntegration() {
 
           {/* RIGHT: COMPACT EDITORIAL STORY (7 COLS) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
-            
+
             <h3 className="font-serif text-xl sm:text-2xl font-normal text-white leading-snug">
               Direct Judicial Docket Synchronization Across All DRT & NCLT Tribunals
             </h3>
-            
+
             <p className="mt-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
               Eliminate missed court dates and manual cause-list checking. IndoLex automatically pulls CNR hearing statuses, daily interim orders, and bench listings into your central SARG dashboard, with automated alerts for limitation deadlines.
             </p>

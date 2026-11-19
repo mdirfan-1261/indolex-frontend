@@ -154,48 +154,50 @@ export default function RecoveryAgentsPage() {
   ];
 
   return (
-  <div className="recovery-agents-page min-h-screen bg-slate-50 text-slate-800 font-sans selection:bg-[#f1592a] selection:text-white transition-colors duration-300">
-      <section className="relative pt-6 pb-12 sm:pt-8 sm:pb-16 overflow-hidden bg-white border-b border-slate-200">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] [background-size:16px_16px]" />
-        
+    <div className="recovery-agents-page min-h-screen bg-[#FAF8F5] dark:bg-[#071326] text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-[#f1592a] selection:text-white transition-colors duration-200">
+      <main className="flex-1">
+      {/* 1. HERO COCKPIT */}
+      <section className="relative pt-6 pb-12 sm:pt-8 sm:pb-16 overflow-hidden bg-white dark:bg-[#0A1528] border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] dark:bg-[radial-gradient(#f1592a_1px,transparent_1px)] [background-size:16px_16px]" />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Column: Mission Brief */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f1592a]/10 text-[#f1592a] text-xs font-semibold tracking-wider uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f1592a]/10 dark:bg-[#f1592a]/20 border border-[#f1592a]/20 text-[#f1592a] text-xs font-semibold tracking-wider uppercase">
                 <ShieldCheck className="w-4 h-4 text-[#f1592a]" />
                 Institutional Field Command • SARFAESI Section 13(4) & Section 14 Desk
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-slate-900 tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-slate-900 dark:text-white tracking-tight leading-tight">
                 Eliminate DRT Stay Orders with <span className="text-[#f1592a] font-normal">Tamper-Proof Panchnamas</span> & Secured Asset Telemetry
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-sans max-w-2xl font-normal">
                 From symbolic possession notices under Rule 8(1) to District Magistrate physical eviction drives and 30-day statutory e-auction handovers—IndoLex equips Bank Authorised Officers and empaneled enforcement agencies with Section 65B-certified mobile evidence and real-time bank desk synchronization.
               </p>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-sm space-y-2">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#1e3a8a] uppercase tracking-wider">
-                  <Radio className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#071326] border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-2">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#1e3a8a] dark:text-blue-400 uppercase tracking-wider">
+                  <Radio className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 animate-pulse" />
                   Live Field Telemetry Benchmark
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-1">
                   <div>
-                    <div className="text-xl font-bold text-slate-900 font-serif">100%</div>
-                    <div className="text-[11px] text-slate-500 font-sans">Sec 65B Geo-Stamped</div>
+                    <div className="text-xl font-bold text-slate-900 dark:text-white font-serif">100%</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans">Sec 65B Geo-Stamped</div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-slate-900 font-serif">&lt; 72 Hrs</div>
-                    <div className="text-[11px] text-slate-500 font-sans">Newspaper Proof Sync</div>
+                    <div className="text-xl font-bold text-slate-900 dark:text-white font-serif">&lt; 72 Hrs</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans">Newspaper Proof Sync</div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-slate-900 font-serif">Zero</div>
-                    <div className="text-[11px] text-slate-500 font-sans">Panchnama Rejections</div>
+                    <div className="text-xl font-bold text-slate-900 dark:text-white font-serif">Zero</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans">Panchnama Rejections</div>
                   </div>
                   <div>
                     <div className="text-xl font-bold text-[#f1592a] font-serif">3 Weeks</div>
-                    <div className="text-[11px] text-slate-500 font-sans">Takeover to Auction</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-sans">Takeover to Auction</div>
                   </div>
                 </div>
               </div>
@@ -210,23 +212,23 @@ export default function RecoveryAgentsPage() {
                 </button>
                 <Link
                   href="#execution-docket"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-white border border-slate-300 text-slate-700 font-medium hover:bg-slate-50 hover:border-slate-400 shadow-sm transition-all text-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all text-sm"
                 >
                   Explore Field Execution Docket
                 </Link>
               </div>
 
-              <div className="flex items-center gap-6 pt-2 text-xs text-slate-500 border-t border-slate-200">
+              <div className="flex items-center gap-6 pt-2 text-xs text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   SARFAESI Rule 8(1) & (2) Admissible
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   Section 65B Evidence Certified
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   RBI Fair Practices Compliant
                 </div>
               </div>
@@ -234,7 +236,7 @@ export default function RecoveryAgentsPage() {
 
             {/* Right Column: High-Fidelity Indian Enforcement Image */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 bg-slate-900 group">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200/80 dark:border-slate-800 bg-slate-900 group">
                 <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full">
                   <Image
                     src="/images/recovery-field-command.webp"
@@ -248,17 +250,17 @@ export default function RecoveryAgentsPage() {
                 </div>
 
                 {/* Floating Bottom Telemetry Badge */}
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between">
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 dark:bg-[#0A1528]/95 backdrop-blur-md border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-between">
                   <div>
-                    <div className="text-xs font-semibold text-slate-900 flex items-center gap-2">
+                    <div className="text-xs font-semibold text-slate-900 dark:text-white flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
                       Authorised Officer Field Docket
                     </div>
-                    <div className="text-[11px] text-slate-500">
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">
                       SARFAESI Sec 13(4) • Geo-Stamped Evidence Synced
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-200 dark:border-emerald-800">
                     100% Admissible
                   </span>
                 </div>
@@ -269,17 +271,17 @@ export default function RecoveryAgentsPage() {
       </section>
 
       {/* 2. BEFORE VS AFTER: ENFORCEMENT TRANSFORMATION MATRIX */}
-      <section className="py-12 sm:py-14 bg-slate-50 border-b border-slate-200">
+      <section className="py-12 sm:py-14 bg-[#FAF8F5] dark:bg-[#071326] border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-xs font-semibold tracking-wider uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e3a8a]/10 dark:bg-[#1e3a8a]/20 border border-[#1e3a8a]/20 text-[#1e3a8a] dark:text-blue-400 text-xs font-semibold tracking-wider uppercase mb-3">
               <SlidersHorizontal className="w-3.5 h-3.5" />
               Real-World Operational Transformation
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 dark:text-white tracking-tight">
               Transforming High-Risk Physical Takeovers into Flawless Judicial Milestones
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 font-sans">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 font-sans font-normal">
               How IndoLex neutralizes borrower stay orders in Debt Recovery Tribunals and eliminates administrative delays across every stage of asset possession.
             </p>
           </div>
@@ -288,33 +290,33 @@ export default function RecoveryAgentsPage() {
             {transformationMatrix.map((item, idx) => (
               <div
                 key={idx}
-                className="grid grid-cols-1 lg:grid-cols-12 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:border-slate-300 transition-all"
+                className="grid grid-cols-1 lg:grid-cols-12 bg-white dark:bg-[#0A1528] rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all"
               >
                 {/* Enforcement Domain */}
-                <div className="lg:col-span-3 p-5 bg-slate-50/80 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-center">
-                  <span className="text-xs font-mono text-slate-400">STAGE 0{idx + 1}</span>
-                  <h3 className="text-sm font-semibold text-slate-900 mt-1">{item.area}</h3>
+                <div className="lg:col-span-3 p-5 bg-slate-50/80 dark:bg-[#071326]/60 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800 flex flex-col justify-center">
+                  <span className="text-xs font-mono text-slate-400 dark:text-slate-500">STAGE 0{idx + 1}</span>
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white mt-1">{item.area}</h3>
                 </div>
 
                 {/* Legacy Paper Reality */}
-                <div className="lg:col-span-4 p-5 border-b lg:border-b-0 lg:border-r border-slate-200 flex items-start gap-3 bg-red-50/20">
+                <div className="lg:col-span-4 p-5 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800 flex items-start gap-3 bg-red-50/20 dark:bg-red-950/20">
                   <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-red-600 block mb-1">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-red-600 dark:text-red-400 block mb-1">
                       Legacy Paper Reality
                     </span>
-                    <p className="text-xs text-slate-600 leading-relaxed">{item.before}</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-normal">{item.before}</p>
                   </div>
                 </div>
 
                 {/* IndoLex Digitized Standard */}
-                <div className="lg:col-span-5 p-5 flex items-start gap-3 bg-emerald-50/30">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="lg:col-span-5 p-5 flex items-start gap-3 bg-emerald-50/30 dark:bg-emerald-950/20">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-700 block mb-1">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 block mb-1">
                       IndoLex Field Telemetry Standard
                     </span>
-                    <p className="text-xs text-slate-700 font-medium leading-relaxed">{item.after}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 font-medium leading-relaxed">{item.after}</p>
                   </div>
                 </div>
               </div>
@@ -324,12 +326,12 @@ export default function RecoveryAgentsPage() {
       </section>
 
       {/* 3. SPOTLIGHT 1: DIGITAL PANCHNAMA & SECTION 65B EVIDENCE ENGINE */}
-      <section className="py-12 sm:py-14 bg-white border-b border-slate-200">
+      <section className="py-12 sm:py-14 bg-white dark:bg-[#0A1528] border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Visual Image Showcase */}
             <div className="lg:col-span-6 relative order-2 lg:order-1">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 group">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/recovery-digital-panchnama.webp"
@@ -341,12 +343,12 @@ export default function RecoveryAgentsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between">
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 dark:bg-[#0A1528]/95 backdrop-blur-md border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-between">
                   <div>
-                    <div className="text-xs font-semibold text-slate-900">Digital Panchnama: SARFAESI Rule 8(1)</div>
-                    <div className="text-[11px] text-slate-500">Dual Independent Panchas • GPS Watermarked</div>
+                    <div className="text-xs font-semibold text-slate-900 dark:text-white">Digital Panchnama: SARFAESI Rule 8(1)</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">Dual Independent Panchas • GPS Watermarked</div>
                   </div>
-                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-200 dark:border-emerald-800">
                     Sec 65B Certified
                   </span>
                 </div>
@@ -355,41 +357,41 @@ export default function RecoveryAgentsPage() {
 
             {/* Right: Technical Architecture */}
             <div className="lg:col-span-6 space-y-6 order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f1592a]/10 text-[#f1592a] text-xs font-semibold tracking-wider uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f1592a]/10 dark:bg-[#f1592a]/20 border border-[#f1592a]/20 text-[#f1592a] text-xs font-semibold tracking-wider uppercase">
                 <Camera className="w-3.5 h-3.5" />
                 Mobile-First Evidence Standard
               </div>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-slate-900 dark:text-white tracking-tight leading-tight">
                 Court-Admissible Mobile Panchnamas & Instant Newspaper Affixture Proof
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-sans font-normal">
                 Defaulting borrowers frequently halt recovery by alleging before DRT benches under Section 17 that physical possession was taken without independent witnesses or that movable plant machinery was looted. IndoLex eliminates this vulnerability forever with legally unassailable electronic proof.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                <div className="p-3.5 rounded-lg border border-slate-200 bg-slate-50/60 flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-medium text-slate-800">
+                <div className="p-3.5 rounded-lg border border-slate-200 dark:border-slate-700/80 bg-slate-50/60 dark:bg-slate-800/40 flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <span className="text-xs font-medium text-slate-800 dark:text-slate-200">
                     Mandatory Dual Panchas (Witness) Aadhaar-masked Signatures
                   </span>
                 </div>
-                <div className="p-3.5 rounded-lg border border-slate-200 bg-slate-50/60 flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-medium text-slate-800">
+                <div className="p-3.5 rounded-lg border border-slate-200 dark:border-slate-700/80 bg-slate-50/60 dark:bg-slate-800/40 flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <span className="text-xs font-medium text-slate-800 dark:text-slate-200">
                     Latitude, Longitude & Timestamped Multi-Angle Photos
                   </span>
                 </div>
-                <div className="p-3.5 rounded-lg border border-slate-200 bg-slate-50/60 flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-medium text-slate-800">
+                <div className="p-3.5 rounded-lg border border-slate-200 dark:border-slate-700/80 bg-slate-50/60 dark:bg-slate-800/40 flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <span className="text-xs font-medium text-slate-800 dark:text-slate-200">
                     Section 65B Cryptographic Hash Certificate Generator
                   </span>
                 </div>
-                <div className="p-3.5 rounded-lg border border-slate-200 bg-slate-50/60 flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span className="text-xs font-medium text-slate-800">
+                <div className="p-3.5 rounded-lg border border-slate-200 dark:border-slate-700/80 bg-slate-50/60 dark:bg-slate-800/40 flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                  <span className="text-xs font-medium text-slate-800 dark:text-slate-200">
                     Rule 8(2) 7-Day English & Vernacular Newspaper Tracker
                   </span>
                 </div>
@@ -400,17 +402,17 @@ export default function RecoveryAgentsPage() {
       </section>
 
       {/* 4. INTERACTIVE FIELD TAKEOVER COMMAND TERMINAL */}
-      <section id="execution-docket" className="py-12 sm:py-14 bg-slate-50 border-b border-slate-200">
+      <section id="execution-docket" className="py-12 sm:py-14 bg-[#FAF8F5] dark:bg-[#071326] border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-xs font-semibold tracking-wider uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1e3a8a]/10 dark:bg-[#1e3a8a]/20 border border-[#1e3a8a]/20 text-[#1e3a8a] dark:text-blue-400 text-xs font-semibold tracking-wider uppercase mb-3">
               <Gavel className="w-3.5 h-3.5" />
               Live Interactive Cockpit
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 dark:text-white tracking-tight">
               The Authorised Officer&apos;s Field Takeover Execution Terminal
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 font-sans">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 font-sans font-normal">
               Navigate through the 4 critical statutory milestones of physical asset enforcement under the SARFAESI Act, 2002.
             </p>
           </div>
@@ -426,14 +428,14 @@ export default function RecoveryAgentsPage() {
                   onClick={() => setActiveStepTab(key)}
                   className={`p-4 rounded-xl text-left border transition-all ${
                     isActive
-                      ? "bg-white border-[#f1592a] shadow-md ring-1 ring-[#f1592a]/20"
-                      : "bg-slate-100/80 border-slate-200 text-slate-600 hover:bg-white"
+                      ? "bg-white dark:bg-[#0A1528] border-[#f1592a] shadow-md ring-1 ring-[#f1592a]/20"
+                      : "bg-slate-100/80 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-800"
                   }`}
                 >
-                  <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 block mb-1">
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-slate-400 dark:text-slate-500 block mb-1">
                     {stage.badge}
                   </span>
-                  <div className={`text-xs font-bold ${isActive ? "text-slate-900" : "text-slate-700"}`}>
+                  <div className={`text-xs font-bold ${isActive ? "text-slate-900 dark:text-white" : "text-slate-700 dark:text-slate-300"}`}>
                     {stage.title}
                   </div>
                 </button>
@@ -442,34 +444,34 @@ export default function RecoveryAgentsPage() {
           </div>
 
           {/* Active Terminal Card */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm">
-            <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div className="bg-white dark:bg-[#0A1528] rounded-2xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 dark:border-slate-800 gap-4">
               <div>
                 <span className="text-xs font-semibold text-[#f1592a] uppercase tracking-wider">
                   {executionStages[activeStepTab].badge}
                 </span>
-                <h3 className="text-xl font-serif text-slate-900 mt-1">
+                <h3 className="text-xl font-serif text-slate-900 dark:text-white mt-1">
                   {executionStages[activeStepTab].title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 font-normal">
                   {executionStages[activeStepTab].desc}
                 </p>
               </div>
-              <div className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold self-start md:self-auto">
+              <div className="px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 text-xs font-semibold self-start md:self-auto">
                 {executionStages[activeStepTab].complianceTag}
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
               {executionStages[activeStepTab].actionItems.map((item, i) => (
-                <div key={i} className="p-4 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white transition-all">
+                <div key={i} className="p-4 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/50 dark:bg-slate-800/40 hover:bg-white dark:hover:bg-slate-800/80 transition-all">
                   <div className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-5 h-5 rounded-full bg-[#1e3a8a]/10 dark:bg-[#1e3a8a]/20 text-[#1e3a8a] dark:text-blue-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                       {i + 1}
                     </span>
                     <div>
-                      <h4 className="text-xs font-bold text-slate-900">{item.label}</h4>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">{item.detail}</p>
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">{item.label}</h4>
+                      <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed font-normal">{item.detail}</p>
                     </div>
                   </div>
                 </div>
@@ -480,50 +482,50 @@ export default function RecoveryAgentsPage() {
       </section>
 
       {/* 5. SPOTLIGHT 2: IBBI VALUER & E-AUCTION 30-DAY CLOCK */}
-      <section className="py-12 sm:py-14 bg-white border-b border-slate-200">
+      <section className="py-12 sm:py-14 bg-white dark:bg-[#0A1528] border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left: Content */}
             <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-xs font-semibold tracking-wider uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1e3a8a]/10 dark:bg-[#1e3a8a]/20 border border-[#1e3a8a]/20 text-[#1e3a8a] dark:text-blue-400 text-xs font-semibold tracking-wider uppercase">
                 <Landmark className="w-3.5 h-3.5" />
                 Asset Monetization Desk
               </div>
 
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-slate-900 dark:text-white tracking-tight leading-tight">
                 Compress Takeover-to-Auction Timelines from 90 Days to Under 3 Weeks
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-sans font-normal">
                 Taking physical possession is futile if secured commercial properties sit idle while loan interest mounts. IndoLex integrates IBBI Registered Valuers directly into the post-possession workflow to immediately establish Realizable Value (RV) and Distress Sale Value (DSV), triggering the 30-day statutory auction countdown.
               </p>
 
               <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/60 dark:bg-slate-800/40">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xs font-bold text-slate-900">IBBI Valuer Docket Auto-Assignment</h3>
-                    <p className="text-xs text-slate-600 mt-0.5">
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-white">IBBI Valuer Docket Auto-Assignment</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 font-normal">
                       Property boundary schedules, title deed notes, and digital inspection logs dispatched instantly to empaneled valuers.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/60 dark:bg-slate-800/40">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xs font-bold text-slate-900">Rule 8(6) Statutory 30-Day Redemption Clock</h3>
-                    <p className="text-xs text-slate-600 mt-0.5">
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-white">Rule 8(6) Statutory 30-Day Redemption Clock</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 font-normal">
                       Automated registered post generation and track-and-trace proof ensuring borrower limitation period is strictly honored.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50/60">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700/80 bg-slate-50/60 dark:bg-slate-800/40">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xs font-bold text-slate-900">Multi-Portal E-Auction Broadcast</h3>
-                    <p className="text-xs text-slate-600 mt-0.5">
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-white">Multi-Portal E-Auction Broadcast</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 font-normal">
                       Direct integration with official e-Bikray, MSTC, and private auction portals for seamless public tender launch.
                     </p>
                   </div>
@@ -533,7 +535,7 @@ export default function RecoveryAgentsPage() {
 
             {/* Right: Valuer Inspection Image */}
             <div className="lg:col-span-6 relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 group">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 group">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/recovery-auction-inspection.webp"
@@ -545,12 +547,12 @@ export default function RecoveryAgentsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
                 </div>
 
-                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg flex items-center justify-between">
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-white/95 dark:bg-[#0A1528]/95 backdrop-blur-md border border-slate-200 dark:border-slate-700 shadow-lg flex items-center justify-between">
                   <div>
-                    <div className="text-xs font-semibold text-slate-900">Auction Readiness: Reserve Price Fixed</div>
-                    <div className="text-[11px] text-slate-500">SARFAESI Rule 8(6) & 9(1) • IBBI Valuation Synced</div>
+                    <div className="text-xs font-semibold text-slate-900 dark:text-white">Auction Readiness: Reserve Price Fixed</div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400">SARFAESI Rule 8(6) & 9(1) • IBBI Valuation Synced</div>
                   </div>
-                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-200 dark:border-emerald-800">
                     Live E-Auction Ready
                   </span>
                 </div>
@@ -561,17 +563,17 @@ export default function RecoveryAgentsPage() {
       </section>
 
       {/* 6. SIX PURPOSE-BUILT ENFORCEMENT MODULES */}
-      <section className="py-12 sm:py-14 bg-slate-50 border-b border-slate-200">
+      <section className="py-12 sm:py-14 bg-[#FAF8F5] dark:bg-[#071326] border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1592a]/10 text-[#f1592a] text-xs font-semibold tracking-wider uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f1592a]/10 dark:bg-[#f1592a]/20 border border-[#f1592a]/20 text-[#f1592a] text-xs font-semibold tracking-wider uppercase mb-3">
               <ShieldAlert className="w-3.5 h-3.5" />
               Comprehensive Enforcement Stack
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 dark:text-white tracking-tight">
               Enterprise Enforcement Modules Built for Authorised Officers & Field Teams
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 mt-2 font-sans">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 font-sans font-normal">
               Engineered specifically to fulfill Indian banking recovery regulations and withstand scrutiny across every DRT bench in the country.
             </p>
           </div>
@@ -582,23 +584,23 @@ export default function RecoveryAgentsPage() {
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition-all flex flex-col justify-between"
+                  className="bg-white dark:bg-[#0A1528] rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-[#1e3a8a]">
-                        <IconComp className="w-5 h-5 text-[#1e3a8a]" />
+                      <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[#1e3a8a] dark:text-blue-400">
+                        <IconComp className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 bg-slate-100 px-2 py-0.5 rounded">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">
                         {item.tag}
                       </span>
                     </div>
 
-                    <h3 className="text-base font-semibold text-slate-900 mb-2">{item.title}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-sans">{item.desc}</p>
+                    <h3 className="text-base font-semibold text-slate-900 dark:text-white mb-2">{item.title}</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans font-normal">{item.desc}</p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-medium text-[#f1592a]">
+                  <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-medium text-[#f1592a]">
                     <span>Institutional Standard</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </div>
@@ -610,7 +612,7 @@ export default function RecoveryAgentsPage() {
       </section>
 
       {/* 7. INSTITUTIONAL CALL TO ACTION */}
-      <section className="py-12 sm:py-14 bg-white">
+      <section className="py-12 sm:py-14 bg-white dark:bg-[#0A1528] transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#1e3a8a] text-white p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#f1592a]/20 rounded-full blur-3xl pointer-events-none" />
@@ -625,7 +627,7 @@ export default function RecoveryAgentsPage() {
                 Equip Your Authorised Officers & Enforcement Agencies Today
               </h2>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-sans font-normal">
                 Accelerate physical possession drives, eliminate borrower stay orders in Debt Recovery Tribunals, and monetize non-performing assets within record statutory limitation windows.
               </p>
 
@@ -648,6 +650,7 @@ export default function RecoveryAgentsPage() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* FOOTER & DEMO MODAL */}
       <Footer />

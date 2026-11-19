@@ -156,10 +156,10 @@ export default function ResolutionProfessionalsPage() {
       {/* 1. HERO COCKPIT (CLEAN STANDARD: TEXT ON LEFT, IMAGE ON RIGHT) */}
       <section className="relative pt-6 pb-12 sm:pt-8 sm:pb-16 overflow-hidden bg-white dark:bg-[#0A1528] border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] pointer-events-none bg-[radial-gradient(#1e3a8a_1px,transparent_1px)] dark:bg-[radial-gradient(#f1592a_1px,transparent_1px)] [background-size:16px_16px]" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            
+
             {/* Left Column: Mission Brief */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f1592a]/10 dark:bg-[#f1592a]/20 border border-[#f1592a]/20 text-[#f1592a] text-xs font-semibold tracking-wider uppercase">
@@ -331,7 +331,7 @@ export default function ResolutionProfessionalsPage() {
       <section className="py-12 sm:py-14 bg-white dark:bg-[#0A1528] border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Visual Image Showcase */}
             <div className="lg:col-span-6 relative order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 group">

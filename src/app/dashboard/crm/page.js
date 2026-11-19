@@ -241,9 +241,9 @@ export default function CrmManagementPage() {
   const sendWhatsAppNotification = (inq) => {
     const cleanPhone = (inq.phoneNumber || '').replace(/[^0-9]/g, '');
     const phoneWithCountry = cleanPhone.startsWith('91') ? cleanPhone : `91${cleanPhone}`;
-    
+
     const message = `Namaste ${inq.firstName} ${inq.lastName} ji,\n\nGreetings from IndoLex Laws SARG Corporate Desk.\n\nWe have received your statutory consultation request for *${inq.organization}* (Ref: *${inq.inquiryRef}*).\n\nOur Legal-Tech Solution Architect (*${scheduleData.officerName}*) has scheduled your platform demo walkthrough:\n\n📅 *Date:* ${scheduleData.meetingDate || 'Tomorrow'}\n⏰ *Time:* ${scheduleData.meetingTime} IST\n🔗 *Meeting Link:* ${scheduleData.meetingLink}\n\nKindly confirm your availability.\n\nRegards,\nIndoLex Laws Platform\nhttps://indolex.in`;
-    
+
     const waUrl = `https://wa.me/${phoneWithCountry}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
     handleInquiryStatusChange(inq._id, 'Contacted');

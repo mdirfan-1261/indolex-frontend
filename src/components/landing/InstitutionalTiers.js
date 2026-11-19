@@ -18,7 +18,7 @@ const INSTITUTIONS = [
     description:
       'Centralized oversight across nationwide zonal branches with automated SMA-0/1/2 tracking, CRILC regulatory reporting, and statutory audit locks.',
     metric: 'Pan-India Multi-Branch SARG',
-    href: '/who-we-serve/bank-officers',
+    href: '/who-we-serve/bank-sarg',
     accentColor: 'blue',
     icon: Landmark,
   },
@@ -29,7 +29,7 @@ const INSTITUTIONS = [
     description:
       'Accelerate recovery velocity on stressed loan portfolios with automated Sec 13(2) notices, Section 14 CMM orders, and digital OTS compromise calculators.',
     metric: 'Fast-Track Capital Recovery',
-    href: '/who-we-serve/bank-officers',
+    href: '/who-we-serve/recovery-agents',
     accentColor: 'amber',
     icon: Building2,
   },
@@ -40,7 +40,7 @@ const INSTITUTIONS = [
     description:
       'Aggregate non-performing loan books, manage Security Receipts (SR) lifecycle, coordinate physical asset repossessions, and orchestrate e-auctions.',
     metric: 'Sec 14 & Auction Management',
-    href: '/who-we-serve/asset-reconstruction',
+    href: '/who-we-serve/resolution-professionals',
     accentColor: 'emerald',
     icon: ShieldCheck,
   },
@@ -51,7 +51,7 @@ const INSTITUTIONS = [
     description:
       'Unified litigation dockets across 39 DRT and 16 NCLT benches with automated daily cause lists, legal notice generation, and speed post tracking.',
     metric: 'Pan-India Court Diary',
-    href: '/who-we-serve/panel-advocates',
+    href: '/who-we-serve/legal-counsels',
     accentColor: 'rose',
     icon: Briefcase,
   },
@@ -61,7 +61,7 @@ export default function InstitutionalTiers() {
   return (
     <section className="bg-[#FAF8F5] dark:bg-[#071326] py-12 sm:py-16 font-sans border-b border-stone-200 dark:border-slate-800 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* COMPACT SECTION HEADER (100% ORIGINAL & RECOVERY ALIGNED) */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
           <div className="max-w-2xl">
@@ -75,18 +75,19 @@ export default function InstitutionalTiers() {
           </div>
 
           <p className="max-w-md text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-normal">
-            Purpose-built governance modules engineered around the statutory and operational mandates of India’s banking recovery ecosystem.
+            Purpose-built governance modules engineered around the statutory and operational mandates of India's banking recovery ecosystem.
           </p>
         </div>
 
-        {/* 4 BESPOKE INSTITUTIONAL CARDS */}
+        {/* 4 BESPOKE INSTITUTIONAL CARDS (100% CLICKABLE) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {INSTITUTIONS.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <Link
                 key={idx}
-                className="group relative flex flex-col justify-between rounded-xl bg-white dark:bg-[#0A1528] p-5 sm:p-6 border border-stone-200/90 dark:border-slate-800 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-slate-400 dark:hover:border-slate-700"
+                href={item.href}
+                className="group relative flex flex-col justify-between rounded-xl bg-white dark:bg-[#0A1528] p-5 sm:p-6 border border-stone-200/90 dark:border-slate-800 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-slate-400 dark:hover:border-slate-700 cursor-pointer"
               >
                 {/* TOP ACCENT LINE */}
                 <div className="absolute top-0 left-0 w-0 h-[2px] bg-[#E05320] group-hover:w-full transition-all duration-500 rounded-t-xl" />
@@ -118,20 +119,17 @@ export default function InstitutionalTiers() {
                   </p>
                 </div>
 
-                {/* BOTTOM METRIC & LINK */}
+                {/* BOTTOM METRIC & ACTION */}
                 <div className="mt-6 pt-3.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
                   <span className="text-[10px] font-medium text-slate-500 dark:text-slate-400 truncate max-w-[140px]">
                     {item.metric}
                   </span>
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#E05320] group-hover:gap-2 transition-all shrink-0"
-                  >
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-[#E05320] group-hover:gap-2 transition-all shrink-0">
                     <span>View Suite</span>
                     <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                  </span>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

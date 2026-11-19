@@ -23,7 +23,7 @@ const getAuthHeaders = () => {
   if (typeof window === 'undefined') {
     return { 'Content-Type': 'application/json' };
   }
-  
+
   let token = localStorage.getItem('token') || localStorage.getItem('authToken');
   if (!token) {
     try {
@@ -560,7 +560,7 @@ export default function ManagementDashboardPage() {
     const items = data.monthlyRecovery || [];
     const totalActual = items.reduce((s, m) => s + (Number(m.actual) || 0), 0);
     const best = items.reduce((b, m) => ((Number(m.actual) || 0) > (b ? Number(b.actual) || 0 : 0) ? m : b), null);
-    
+
     return {
       npaRatio: out > 0 ? ((npa / out) * 100).toFixed(1) : '0.0',
       recoveryRate: npa > 0 && cash > 0 ? `${Math.round((cash / npa) * 100)}%` : '—',

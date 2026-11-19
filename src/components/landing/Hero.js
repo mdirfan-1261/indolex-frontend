@@ -37,7 +37,7 @@ export default function Hero({ onOpenDemo }) {
         priority
         fetchPriority="high"
         sizes="100vw"
-        quality={80}
+        quality={75}
         className="absolute inset-0 -z-20 object-cover object-[65%_center] opacity-85 sm:object-center sm:opacity-90"
       />
 

@@ -1,31 +1,34 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, CheckCircle2, LayoutDashboard } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
 
 export default function CtaBanner({ onOpenDemo }) {
+  const { isAuthenticated, loading } = useAuth();
+
   return (
     <section className="bg-gradient-to-br from-[#0C172B] via-[#08101E] to-[#050C16] py-12 sm:py-16 text-white relative overflow-hidden border-b border-slate-800">
-      
+
       {/* SUBTLE AMBER GLOW */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center relative z-10">
-        
+
         <div className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-amber-300 mb-4 backdrop-blur-md">
           <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-          <span>Scheduled Commercial Banks • ARCs • Law Panels</span>
+          <span>Scheduled Commercial Banks &bull; ARCs &bull; Law Panels</span>
         </div>
 
         <h2 className="font-serif text-2xl sm:text-4xl font-normal tracking-tight text-white leading-tight">
-          Modernize Your Institution's Default Resolution & Legal Operations
+          Modernize Your Institution's Default Resolution &amp; Legal Operations
         </h2>
 
         <p className="mt-3 text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed">
-          Equip your recovery officers, credit heads, and empanelled counsel with India’s synchronized statutory loan recovery platform.
+          Equip your recovery officers, credit heads, and empanelled counsel with India's synchronized statutory loan recovery platform.
         </p>
 
-        {/* DUAL ACTION BUTTONS */}
+        {/* DUAL ACTION BUTTONS (DYNAMIC AUTH STATE) */}
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3.5">
           <button
             type="button"
@@ -36,12 +39,23 @@ export default function CtaBanner({ onOpenDemo }) {
             <ArrowRight className="h-4 w-4" />
           </button>
 
-          <Link
-            href="/login"
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-slate-200 hover:bg-white/10 hover:border-slate-500 transition-all"
-          >
-            <span>Bank SARG Login</span>
-          </Link>
+          {!loading && isAuthenticated ? (
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center gap-2 rounded-xl border border-sky-400/50 bg-sky-500/20 px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-sky-200 hover:bg-sky-500/30 hover:text-white transition-all shadow-sm"
+            >
+              <LayoutDashboard className="h-4 w-4 text-sky-300" />
+              <span>Enter SARG Dashboard</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-slate-200 hover:bg-white/10 hover:border-slate-500 transition-all"
+            >
+              <span>Bank SARG Login</span>
+            </Link>
+          )}
         </div>
 
         {/* 3 REGULATORY TRUST CHECKS */}
@@ -52,7 +66,7 @@ export default function CtaBanner({ onOpenDemo }) {
           </div>
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            <span>SARFAESI Sec 13(2) & 13(4) Automation</span>
+            <span>SARFAESI Sec 13(2) &amp; 13(4) Automation</span>
           </div>
           <div className="flex items-center gap-1.5">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
