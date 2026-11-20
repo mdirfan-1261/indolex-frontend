@@ -28,6 +28,32 @@ const inputCls =
   'w-full h-8 px-2.5 rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500 transition-colors';
 const labelCls = 'block mb-1 text-[11px] font-medium text-slate-600 dark:text-slate-300';
 
+// MCA Corporate CIN 2-Letter State Code Mapper
+const CIN_STATE_MAP = {
+  UP: 'Uttar Pradesh',
+  MH: 'Maharashtra',
+  DL: 'Delhi',
+  GJ: 'Gujarat',
+  KA: 'Karnataka',
+  TN: 'Tamil Nadu',
+  WB: 'West Bengal',
+  HR: 'Haryana',
+  TG: 'Telangana',
+  RJ: 'Rajasthan',
+  MP: 'Madhya Pradesh',
+  PB: 'Punjab',
+  AP: 'Andhra Pradesh',
+  BR: 'Bihar',
+  OR: 'Odisha',
+  KL: 'Kerala',
+  CH: 'Chandigarh',
+  UT: 'Uttarakhand',
+  JH: 'Jharkhand',
+  AS: 'Assam',
+  GA: 'Goa',
+  HP: 'Himachal Pradesh',
+};
+
 export default function BorrowersPage() {
   const { token } = useAuth();
   const [borrowers, setBorrowers] = useState([]);
@@ -64,6 +90,19 @@ export default function BorrowersPage() {
   const showToast = (message) => {
     setToast({ show: true, message });
     setTimeout(() => setToast({ show: false, message: '' }), 4000);
+  };
+
+  const handleCinChange = (val) => {
+    const upper = val.toUpperCase();
+    let detectedState = formData.state;
+    // Indian MCA CIN 2-Letter state is at index 6 and 7 (e.g., U72900UP2021PTC145678)
+    if (upper.length >= 8) {
+      const code = upper.substring(6, 8);
+      if (CIN_STATE_MAP[code]) {
+        detectedState = CIN_STATE_MAP[code];
+      }
+    }
+    setFormData((prev) => ({ ...prev, cin: upper, state: detectedState }));
   };
 
   // Fetch Borrowers from MongoDB
@@ -448,7 +487,7 @@ export default function BorrowersPage() {
                       required
                       placeholder="U45200MH2014PTC254890"
                       value={formData.cin}
-                      onChange={(e) => setFormData({ ...formData, cin: e.target.value })}
+                      onChange={(e) => handleCinChange(e.target.value)}
                       className={`${inputCls} font-mono`}
                     />
                   </div>
@@ -515,15 +554,48 @@ export default function BorrowersPage() {
                   </div>
                 </div>
 
-                <div>
-                  <label className={labelCls}>Registered Address & State</label>
-                  <input
-                    type="text"
-                    placeholder="Nariman Point, Mumbai, Maharashtra - 400021"
-                    value={formData.registeredAddress}
-                    onChange={(e) => setFormData({ ...formData, registeredAddress: e.target.value })}
-                    className={inputCls}
-                  />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className={labelCls}>State / Jurisdiction *</label>
+                    <select
+                      value={formData.state}
+                      onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                      className={inputCls}
+                    >
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className={labelCls}>Registered Office Address</label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Sector 62, Noida, Gautam Buddha Nagar"
+                      value={formData.registeredAddress}
+                      onChange={(e) => setFormData({ ...formData, registeredAddress: e.target.value })}
+                      className={inputCls}
+                    />
+                  </div>
                 </div>
               </div>
 
