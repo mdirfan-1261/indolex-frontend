@@ -23,7 +23,7 @@ import BankNoticeDefenseModal from '@/components/landing/BankNoticeDefenseModal'
 import DemoModal from '@/components/landing/DemoModal';
 import Footer from '@/components/landing/Footer';
 
-/* UI-only helper: viewport me aate hi ek baar smoothly reveal hota hai */
+/* UI-only helper: smooth reveal once element enters viewport */
 function Reveal({ children, delay = 0, className = '' }) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
@@ -73,7 +73,7 @@ export default function AboutPage() {
     {
       num: '01',
       title: 'Statutory Infallibility',
-      law: 'SARFAESI 2002 â€¢ IBC 2016 â€¢ Sec 138 NI Act',
+      law: 'SARFAESI 2002 \u2022 IBC 2016 \u2022 Sec 138 NI Act',
       desc: 'Every legal demand notice, possession application, and petition is drafted against codified statutory provisions to ensure zero procedural loopholes or dismissal risks in DRT or NCLT.',
     },
     {
@@ -92,7 +92,7 @@ export default function AboutPage() {
 
   // Verified Scale Highlights
   const keyMetrics = [
-    { value: 'â‚¹4,850+ Cr', label: 'Stressed Assets Monitored', sub: 'Across Scheduled Banks & NBFCs' },
+    { value: '\u20B94,850+ Cr', label: 'Stressed Assets Monitored', sub: 'Across Scheduled Banks & NBFCs' },
     { value: '120+', label: 'Empanelled Banking Desks', sub: 'Zonal & Circle Recovery Offices' },
     { value: '39 DRTs & 15 NCLTs', label: 'Judicial Sync', sub: 'Live e-Courts Cause-Lists' },
     { value: '48 Hours', label: 'Evidentiary Audit', sub: 'Statutory Notice Dispatch Time' },
@@ -134,7 +134,7 @@ export default function AboutPage() {
         }
       `}</style>
 
-      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ 1. HERO (Image on Right) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ==================== 1. HERO (Image on Right) ==================== */}
       <section className="relative overflow-hidden pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pb-20 border-b border-slate-200/80 dark:border-slate-800/80">
         <div className="pointer-events-none absolute top-0 right-1/4 w-80 h-80 bg-[#E05320]/10 rounded-full blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-10 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl" />
@@ -147,7 +147,7 @@ export default function AboutPage() {
               <div className="space-y-4 sm:space-y-5">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-amber-600/30 bg-amber-500/10 text-amber-800 dark:text-amber-300 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#E05320]" />
-                  <span>IndoLex Laws â€¢ Institutional Profile</span>
+                  <span>IndoLex Laws &bull; Institutional Profile</span>
                 </div>
 
                 <h1 className="text-[1.65rem] sm:text-4xl lg:text-[2.75rem] font-serif font-bold text-slate-900 dark:text-white leading-[1.18] tracking-tight">
@@ -226,12 +226,12 @@ export default function AboutPage() {
                       <div className="absolute bottom-2.5 left-2.5 w-1.5 h-1.5 rounded-full bg-amber-400/80 shadow z-10" />
                       <div className="absolute bottom-2.5 right-2.5 w-1.5 h-1.5 rounded-full bg-amber-400/80 shadow z-10" />
 
-                      {/* ðŸ“¸ IMAGE 1: HERO HANGING PHOTOGRAPH */}
+                      {/* IMAGE 1: HERO HANGING PHOTOGRAPH */}
                       <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full rounded-lg overflow-hidden border border-white/15 bg-gradient-to-br from-slate-900 via-[#0B1728] to-slate-950 shadow-inner group">
                         {!heroImgError ? (
                           <>
                             <Image
-                              src="/images/about/about-hero.webp"
+                              src="/images/about/about-hero.png"
                               alt="IndoLex Laws SARG Executive Recovery Chambers, Nariman Point, Mumbai"
                               fill
                               sizes="(max-width: 768px) 100vw, 450px"
@@ -267,7 +267,7 @@ export default function AboutPage() {
                           IndoLex Laws Chambers
                         </span>
                         <span className="text-[10px] font-mono text-amber-400/80">
-                          Nariman Point â€¢ Mumbai
+                          Nariman Point &bull; Mumbai
                         </span>
                       </div>
 
@@ -283,7 +283,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ 2. KEY METRICS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ==================== 2. KEY METRICS ==================== */}
       <section className="py-8 sm:py-10 bg-white dark:bg-[#0A1528] border-b border-slate-200/80 dark:border-slate-800/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -306,19 +306,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ 3. NEW EDITORIAL SPLIT (Image on Left) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ==================== 3. EDITORIAL SPLIT (Image on Left) ==================== */}
       <section className="py-14 sm:py-20 bg-slate-50 dark:bg-[#071326] border-b border-slate-200/80 dark:border-slate-800/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-            {/* Left: ðŸ“¸ IMAGE 2 - Grounded Executive Editorial Photograph */}
+            {/* Left: IMAGE 2 - Grounded Executive Editorial Photograph */}
             <Reveal className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-slate-200 dark:border-slate-800 bg-slate-900 group">
                 <div className="relative aspect-[4/3] sm:aspect-[16/11] w-full">
                   {!storyImgError ? (
                     <>
                       <Image
-                        src="/images/about/about-resolution.webp"
+                        src="/images/about/about-resolution.jpeg"
                         alt="IndoLex High-Stakes Banking Recovery & Tribunal Resolution Session"
                         fill
                         sizes="(max-width: 768px) 100vw, 500px"
@@ -367,7 +367,7 @@ export default function AboutPage() {
               </div>
 
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
-                Resolving Indiaâ€™s â‚¹8.5 Lakh Crore Stressed Asset Bottleneck
+                Resolving India&apos;s &#8377;8.5 Lakh Crore Stressed Asset Bottleneck
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -380,10 +380,10 @@ export default function AboutPage() {
 
               <div className="pt-2 border-l-2 border-[#E05320] pl-4 space-y-1">
                 <div className="text-xs sm:text-sm font-serif italic text-slate-800 dark:text-slate-200">
-                  "Speed in statutory recovery is built upon evidentiary infallibility before the Bench."
+                  &ldquo;Speed in statutory recovery is built upon evidentiary infallibility before the Bench.&rdquo;
                 </div>
                 <div className="text-[11px] text-[#E05320] font-semibold">
-                  â€” SARG Legal Directorate &amp; Advisory Council
+                  &mdash; SARG Legal Directorate &amp; Advisory Council
                 </div>
               </div>
             </Reveal>
@@ -392,7 +392,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ 4. 3 ARCHITECTURAL PILLARS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ==================== 4. 3 ARCHITECTURAL PILLARS ==================== */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
 
@@ -440,7 +440,7 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="relative mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                  <div className="relative mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-2 text-xs font-semibold text-emerald-600 dark:emerald-400">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Statutory Standard Verified</span>
                   </div>
@@ -452,7 +452,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ 5. NODAL HUBS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ==================== 5. NODAL HUBS ==================== */}
       <section className="py-10 sm:py-14 bg-white dark:bg-[#0A1528] border-y border-slate-200/80 dark:border-slate-800/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
@@ -491,7 +491,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ 6. CTA BANNER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ==================== 6. CTA BANNER ==================== */}
       <section className="relative overflow-hidden py-12 sm:py-16 bg-gradient-to-br from-[#0A1528] via-[#071326] to-[#040A14] text-white">
         <div className="pointer-events-none absolute -top-16 left-1/2 h-64 w-[40rem] max-w-full -translate-x-1/2 rounded-full bg-[#E05320]/15 blur-3xl" />
 
@@ -555,4 +555,3 @@ export default function AboutPage() {
     </div>
   );
 }
-

@@ -49,7 +49,7 @@ export default function SubpageHeroVisual({ imageSrc, title, code }) {
           {code} JURISDICTION
         </span>
         <h3 className="text-base sm:text-lg font-serif font-bold text-white mt-1 leading-snug">
-          Judicial Enforceability &amp; Evidence Audit
+          {title}
         </h3>
       </div>
     </div>

@@ -737,12 +737,6 @@ export default async function ServiceSubpage({ params }) {
                   title={service.title}
                   code={service.code}
                 />
-                <div className="px-4 py-2.5 bg-white dark:bg-[#0A1528] border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" /> High Court Panel
-                  </span>
-                  <span className="text-[#E05320] font-semibold">100% Lawful Recovery →</span>
-                </div>
               </div>
             </Reveal>
 
