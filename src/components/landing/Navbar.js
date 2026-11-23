@@ -34,7 +34,6 @@ export default function Navbar({ onOpenDemo, onOpenClaim }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [solutionsDropdown, setSolutionsDropdown] = useState(false);
   const [whoWeServeDropdown, setWhoWeServeDropdown] = useState(false);
-  const [aboutDropdown, setAboutDropdown] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isClaimModalOpen, setIsClaimModalOpen] = useState(false);
 
@@ -260,119 +259,13 @@ export default function Navbar({ onOpenDemo, onOpenClaim }) {
               Services
             </Link>
 
-            {/* ABOUT MEGA-DROPDOWN */}
-            <div
-              className="relative"
-              onMouseEnter={() => setAboutDropdown(true)}
-              onMouseLeave={() => setAboutDropdown(false)}
+            {/* 🟢 ABOUT BUTTON */}
+            <Link
+              href="/about"
+              className="px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors cursor-pointer font-medium text-slate-700 dark:text-slate-200"
             >
-              <button
-                type="button"
-                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors cursor-pointer"
-                aria-expanded={aboutDropdown}
-              >
-                <span>About</span>
-
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    aboutDropdown
-                      ? 'rotate-180 text-[#E05320]'
-                      : 'text-slate-400'
-                  }`}
-                />
-              </button>
-
-              {aboutDropdown && (
-                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-1.5 w-[760px] animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0A1528] p-6 shadow-2xl">
-
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-4 px-2">
-                      About IndoLex Laws &amp; Enterprise Governance
-                    </div>
-
-                    <div className="grid grid-cols-4 gap-6">
-
-                      {/* Column 1: About IndoLex */}
-                      <div className="space-y-3">
-                        <div className="font-serif text-base font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1.5">
-                          About IndoLex
-                        </div>
-
-                        <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Platform Overview
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            14 Core BRD Modules
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            SARG Leadership Desk
-                          </li>
-                        </ul>
-                      </div>
-
-                      {/* Column 2: Governance */}
-                      <div className="space-y-3">
-                        <div className="font-serif text-base font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1.5">
-                          Governance
-                        </div>
-
-                        <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            RBI IRAC Compliance
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Judicial Precedents
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Audit &amp; Oversight
-                          </li>
-                        </ul>
-                      </div>
-
-                      {/* Column 3: Institutions */}
-                      <div className="space-y-3">
-                        <div className="font-serif text-base font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1.5">
-                          Institutions
-                        </div>
-
-                        <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Scheduled Banks
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            ARCs &amp; NBFCs
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Empanelled Advocates
-                          </li>
-                        </ul>
-                      </div>
-
-                      {/* Column 4: Trust & Security */}
-                      <div className="space-y-3">
-                        <div className="font-serif text-base font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1.5">
-                          Trust &amp; Security
-                        </div>
-
-                        <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            ISO 27001 Controls
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Sec 65B Audit Trail
-                          </li>
-                          <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Data Sovereignty
-                          </li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+              About
+            </Link>
 
           </nav>
 
@@ -508,89 +401,16 @@ export default function Navbar({ onOpenDemo, onOpenClaim }) {
               </Link>
             </div>
 
-            {/* MOBILE ABOUT ACCORDION */}
+            {/* 🟢 MOBILE ABOUT BUTTON */}
             <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
-
-              <button
-                type="button"
-                onClick={() => setAboutDropdown(!aboutDropdown)}
-                className="flex w-full items-center justify-between px-3 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400"
-                aria-expanded={aboutDropdown}
+              <Link
+                href="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-[#E05320] dark:hover:text-[#E05320] rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
                 <span>About</span>
-
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${
-                    aboutDropdown ? 'rotate-180 text-[#E05320]' : ''
-                  }`}
-                />
-              </button>
-
-              {aboutDropdown && (
-                <div className="px-2 pb-2">
-
-                  <div className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                    About IndoLex Laws &amp; Enterprise Governance
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2">
-
-                    {/* ABOUT INDOLEX */}
-                    <div className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 p-3">
-                      <h4 className="text-xs font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2 mb-2">
-                        About IndoLex
-                      </h4>
-
-                      <ul className="space-y-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>Platform Overview</li>
-                        <li>14 Core BRD Modules</li>
-                        <li>SARG Leadership Desk</li>
-                      </ul>
-                    </div>
-
-                    {/* GOVERNANCE */}
-                    <div className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 p-3">
-                      <h4 className="text-xs font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2 mb-2">
-                        Governance
-                      </h4>
-
-                      <ul className="space-y-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>RBI IRAC Compliance</li>
-                        <li>Judicial Precedents</li>
-                        <li>Audit &amp; Oversight</li>
-                      </ul>
-                    </div>
-
-                    {/* INSTITUTIONS */}
-                    <div className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 p-3">
-                      <h4 className="text-xs font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2 mb-2">
-                        Institutions
-                      </h4>
-
-                      <ul className="space-y-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>Scheduled Banks</li>
-                        <li>ARCs &amp; NBFCs</li>
-                        <li>Empanelled Advocates</li>
-                      </ul>
-                    </div>
-
-                    {/* TRUST & SECURITY */}
-                    <div className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 p-3">
-                      <h4 className="text-xs font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2 mb-2">
-                        Trust &amp; Security
-                      </h4>
-
-                      <ul className="space-y-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
-                        <li>ISO 27001 Controls</li>
-                        <li>Sec 65B Audit Trail</li>
-                        <li>Data Sovereignty</li>
-                      </ul>
-                    </div>
-
-                  </div>
-                </div>
-              )}
-
+                <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+              </Link>
             </div>
 
             {/* MOBILE AUTH & CTA BUTTONS */}
