@@ -1,7 +1,6 @@
-
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Scale,
@@ -18,13 +17,15 @@ import {
   Landmark,
   Briefcase,
   Users2,
+  BriefcaseBusiness,
 } from 'lucide-react';
 
 import ThemeToggle from './ThemeToggle';
 import DemoModal from './DemoModal';
+import ClaimAssessmentModal from './ClaimAssessmentModal';
 import { useAuth } from '@/context/AuthContext';
 
-export default function Navbar({ onOpenDemo }) {
+export default function Navbar({ onOpenDemo, onOpenClaim }) {
   const {
     isAuthenticated,
     loading,
@@ -33,14 +34,26 @@ export default function Navbar({ onOpenDemo }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [solutionsDropdown, setSolutionsDropdown] = useState(false);
   const [whoWeServeDropdown, setWhoWeServeDropdown] = useState(false);
-  const [lawsDropdown, setLawsDropdown] = useState(false);
   const [aboutDropdown, setAboutDropdown] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isClaimModalOpen, setIsClaimModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpenClaim = () => setIsClaimModalOpen(true);
+    window.addEventListener('open-claim-modal', handleOpenClaim);
+    return () => window.removeEventListener('open-claim-modal', handleOpenClaim);
+  }, []);
 
   const handleDemoClick = () => {
     setMobileMenuOpen(false);
     setIsDemoModalOpen(true);
     onOpenDemo?.();
+  };
+
+  const handleClaimClick = () => {
+    setMobileMenuOpen(false);
+    setIsClaimModalOpen(true);
+    onOpenClaim?.();
   };
 
   // BRD Section 9: Institutional Personas
@@ -68,30 +81,6 @@ export default function Navbar({ onOpenDemo }) {
       desc: 'Physical possession orders u/s 14, DM/CMM dockets & e-Auctions.',
       icon: Users2,
       href: '/who-we-serve/recovery-agents',
-    },
-  ];
-
-  // Statutory Recovery Acts
-  const statutoryActs = [
-    {
-      code: 'SARFAESI Act, 2002',
-      detail: 'Sec 13(2) Demand, 13(4) Symbolic & Sec 14 Physical Possession',
-    },
-    {
-      code: 'IBC, 2016',
-      detail: 'Section 7/9 CIRP filing, CoC Resolution & Liquidation audits',
-    },
-    {
-      code: 'RDDBFI Act, 1993',
-      detail: 'DRT Sec 19 Original Application & Recovery Certificate (RC)',
-    },
-    {
-      code: 'NI Act, 1881',
-      detail: 'Section 138 Cheque dishonour dockets & compounding',
-    },
-    {
-      code: 'Commercial Courts Act',
-      detail: 'Order XXXVII CPC summary suits & High Court caveats',
     },
   ];
 
@@ -125,7 +114,7 @@ export default function Navbar({ onOpenDemo }) {
             >
               <button
                 type="button"
-                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors"
+                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors cursor-pointer"
                 aria-expanded={solutionsDropdown}
               >
                 <span>Solutions</span>
@@ -157,7 +146,7 @@ export default function Navbar({ onOpenDemo }) {
                           Statutory Enforcement
                         </div>
                         <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                          SARFAESI Sec 13(2), 13(4) & DM Sec 14 possession dockets.
+                          SARFAESI Sec 13(2), 13(4) &amp; DM Sec 14 possession dockets.
                         </div>
                       </div>
                     </Link>
@@ -176,7 +165,7 @@ export default function Navbar({ onOpenDemo }) {
                           Judicial Litigation Docket
                         </div>
                         <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                          DRT OA-19 petitions, NCLT IBC CIRP & Section 138 cases.
+                          DRT OA-19 petitions, NCLT IBC CIRP &amp; Section 138 cases.
                         </div>
                       </div>
                     </Link>
@@ -192,10 +181,10 @@ export default function Navbar({ onOpenDemo }) {
 
                       <div>
                         <div className="text-xs font-semibold text-slate-900 dark:text-white">
-                          Corporate Debt & OTS Engine
+                          Corporate Debt &amp; OTS Engine
                         </div>
                         <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                          RBI OTS haircut modeling, escrow milestones & MCA CHG-4 release.
+                          RBI OTS haircut modeling, escrow milestones &amp; MCA CHG-4 release.
                         </div>
                       </div>
                     </Link>
@@ -213,7 +202,7 @@ export default function Navbar({ onOpenDemo }) {
             >
               <button
                 type="button"
-                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors"
+                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors cursor-pointer"
                 aria-expanded={whoWeServeDropdown}
               >
                 <span>Who We Serve</span>
@@ -263,57 +252,15 @@ export default function Navbar({ onOpenDemo }) {
               )}
             </div>
 
-            {/* STATUTORY LAWS DROPDOWN */}
-            <div
-              className="relative"
-              onMouseEnter={() => setLawsDropdown(true)}
-              onMouseLeave={() => setLawsDropdown(false)}
+            {/* 🟢 SERVICES BUTTON */}
+            <Link
+              href="/services"
+              className="px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors cursor-pointer font-medium text-slate-700 dark:text-slate-200"
             >
-              <button
-                type="button"
-                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors"
-                aria-expanded={lawsDropdown}
-              >
-                <span>Statutory Laws</span>
+              Services
+            </Link>
 
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                    lawsDropdown
-                      ? 'rotate-180 text-[#E05320]'
-                      : 'text-slate-400'
-                  }`}
-                />
-              </button>
-
-              {lawsDropdown && (
-                <div className="absolute left-0 top-full pt-1.5 w-[400px] animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0A1528] p-2 shadow-xl">
-
-                    <div className="px-3 py-1.5 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                      RBI IRAC & Recovery Frameworks
-                    </div>
-
-                    {statutoryActs.map((act) => (
-                      <div
-                        key={act.code}
-                        className="px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
-                      >
-                        <div className="text-xs font-semibold text-[#E05320] dark:text-[#E86835]">
-                          {act.code}
-                        </div>
-
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                          {act.detail}
-                        </div>
-                      </div>
-                    ))}
-
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* ABOUT MEGA-DROPDOWN - DESKTOP ORIGINAL */}
+            {/* ABOUT MEGA-DROPDOWN */}
             <div
               className="relative"
               onMouseEnter={() => setAboutDropdown(true)}
@@ -321,7 +268,7 @@ export default function Navbar({ onOpenDemo }) {
             >
               <button
                 type="button"
-                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors"
+                className="flex items-center gap-1 px-3 py-2 rounded-lg hover:text-[#E05320] dark:hover:text-[#E05320] transition-colors cursor-pointer"
                 aria-expanded={aboutDropdown}
               >
                 <span>About</span>
@@ -340,7 +287,7 @@ export default function Navbar({ onOpenDemo }) {
                   <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0A1528] p-6 shadow-2xl">
 
                     <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-4 px-2">
-                      About IndoLex Laws & Enterprise Governance
+                      About IndoLex Laws &amp; Enterprise Governance
                     </div>
 
                     <div className="grid grid-cols-4 gap-6">
@@ -378,7 +325,7 @@ export default function Navbar({ onOpenDemo }) {
                             Judicial Precedents
                           </li>
                           <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            Audit & Oversight
+                            Audit &amp; Oversight
                           </li>
                         </ul>
                       </div>
@@ -394,7 +341,7 @@ export default function Navbar({ onOpenDemo }) {
                             Scheduled Banks
                           </li>
                           <li className="cursor-default hover:text-[#E05320] transition-colors">
-                            ARCs & NBFCs
+                            ARCs &amp; NBFCs
                           </li>
                           <li className="cursor-default hover:text-[#E05320] transition-colors">
                             Empanelled Advocates
@@ -405,7 +352,7 @@ export default function Navbar({ onOpenDemo }) {
                       {/* Column 4: Trust & Security */}
                       <div className="space-y-3">
                         <div className="font-serif text-base font-medium text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1.5">
-                          Trust & Security
+                          Trust &amp; Security
                         </div>
 
                         <ul className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
@@ -454,10 +401,14 @@ export default function Navbar({ onOpenDemo }) {
 
             <button
               type="button"
-              onClick={handleDemoClick}
-              className="inline-flex items-center gap-2 rounded-xl bg-[#E05320] px-4 py-2 text-xs font-bold text-white shadow-md hover:bg-[#C84518] active:scale-95 transition-all cursor-pointer"
+              onClick={handleClaimClick}
+              className="inline-flex items-center gap-2 rounded-xl bg-[#E05320] hover:bg-[#C84518] px-4 py-2 text-xs font-bold text-white shadow-md shadow-[#E05320]/25 hover:shadow-[#E05320]/40 active:scale-95 transition-all cursor-pointer"
             >
-              <span>Request a Demo</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span>Submit Recovery Claim</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
 
@@ -518,7 +469,7 @@ export default function Navbar({ onOpenDemo }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-between px-3 py-2 sm:py-2.5 text-xs font-medium text-slate-800 dark:text-slate-200 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800"
               >
-                <span>Corporate Debt & OTS Engine</span>
+                <span>Corporate Debt &amp; OTS Engine</span>
                 <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
               </Link>
 
@@ -545,47 +496,16 @@ export default function Navbar({ onOpenDemo }) {
 
             </div>
 
-            {/* MOBILE STATUTORY LAWS */}
+            {/* 🟢 MOBILE SERVICES BUTTON */}
             <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
-
-              <button
-                type="button"
-                onClick={() => setLawsDropdown(!lawsDropdown)}
-                className="flex w-full items-center justify-between px-3 py-2 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400"
-                aria-expanded={lawsDropdown}
+              <Link
+                href="/services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between px-3 py-2 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-[#E05320] dark:hover:text-[#E05320] rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
-                <span>Statutory Laws</span>
-
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${
-                    lawsDropdown ? 'rotate-180 text-[#E05320]' : ''
-                  }`}
-                />
-              </button>
-
-              {lawsDropdown && (
-                <div className="space-y-1 px-2 pb-2">
-                  <div className="px-2 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
-                    RBI IRAC & Recovery Frameworks
-                  </div>
-
-                  {statutoryActs.map((act) => (
-                    <div
-                      key={act.code}
-                      className="rounded-lg px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800/60"
-                    >
-                      <div className="text-xs font-semibold text-[#E05320] dark:text-[#E86835]">
-                        {act.code}
-                      </div>
-
-                      <div className="text-[11px] leading-relaxed text-slate-500 dark:text-slate-400 mt-0.5">
-                        {act.detail}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
+                <span>Services</span>
+                <ChevronRight className="h-3.5 w-3.5 text-slate-400" />
+              </Link>
             </div>
 
             {/* MOBILE ABOUT ACCORDION */}
@@ -610,7 +530,7 @@ export default function Navbar({ onOpenDemo }) {
                 <div className="px-2 pb-2">
 
                   <div className="mb-2 px-2 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                    About IndoLex Laws & Enterprise Governance
+                    About IndoLex Laws &amp; Enterprise Governance
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
@@ -637,7 +557,7 @@ export default function Navbar({ onOpenDemo }) {
                       <ul className="space-y-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
                         <li>RBI IRAC Compliance</li>
                         <li>Judicial Precedents</li>
-                        <li>Audit & Oversight</li>
+                        <li>Audit &amp; Oversight</li>
                       </ul>
                     </div>
 
@@ -649,7 +569,7 @@ export default function Navbar({ onOpenDemo }) {
 
                       <ul className="space-y-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
                         <li>Scheduled Banks</li>
-                        <li>ARCs & NBFCs</li>
+                        <li>ARCs &amp; NBFCs</li>
                         <li>Empanelled Advocates</li>
                       </ul>
                     </div>
@@ -657,7 +577,7 @@ export default function Navbar({ onOpenDemo }) {
                     {/* TRUST & SECURITY */}
                     <div className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/40 p-3">
                       <h4 className="text-xs font-semibold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700 pb-2 mb-2">
-                        Trust & Security
+                        Trust &amp; Security
                       </h4>
 
                       <ul className="space-y-2 text-[11px] leading-relaxed text-slate-600 dark:text-slate-300">
@@ -698,10 +618,14 @@ export default function Navbar({ onOpenDemo }) {
 
               <button
                 type="button"
-                onClick={handleDemoClick}
+                onClick={handleClaimClick}
                 className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-[#E05320] text-xs font-bold text-white shadow-md hover:bg-[#C84518] cursor-pointer"
               >
-                <span>Request a Demo</span>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                </span>
+                <span>Submit Recovery Claim</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
 
@@ -716,6 +640,12 @@ export default function Navbar({ onOpenDemo }) {
       <DemoModal
         isOpen={isDemoModalOpen}
         onClose={() => setIsDemoModalOpen(false)}
+      />
+
+      {/* CLAIM ASSESSMENT MODAL POPUP */}
+      <ClaimAssessmentModal
+        isOpen={isClaimModalOpen}
+        onClose={() => setIsClaimModalOpen(false)}
       />
     </>
   );

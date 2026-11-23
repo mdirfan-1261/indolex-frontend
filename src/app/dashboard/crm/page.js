@@ -1067,6 +1067,17 @@ export default function CrmManagementPage() {
                 </div>
               </div>
 
+              {selectedInquiry.notes && (
+                <div className="p-3 rounded-xl bg-amber-50/80 dark:bg-amber-950/25 border border-amber-200/80 dark:border-amber-900/40 space-y-1.5">
+                  <span className="text-[10.5px] font-bold text-amber-800 dark:text-amber-300 uppercase tracking-wider block">
+                    Statutory Recovery Claim Assessment &amp; Defaulter Details
+                  </span>
+                  <pre className="text-[11px] text-slate-800 dark:text-slate-200 whitespace-pre-wrap font-sans leading-relaxed">
+                    {selectedInquiry.notes}
+                  </pre>
+                </div>
+              )}
+
               <div className="pt-2 flex items-center justify-end gap-2">
                 <button
                   onClick={() => setSelectedInquiry(null)}

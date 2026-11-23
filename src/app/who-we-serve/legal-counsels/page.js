@@ -19,9 +19,11 @@ import {
 
 import Footer from "@/components/landing/Footer";
 import DemoModal from "@/components/landing/DemoModal";
+import AdvocateEmpanelmentModal from "@/components/landing/AdvocateEmpanelmentModal";
 
 export default function LegalCounselsPage() {
   const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const [isEmpanelOpen, setIsEmpanelOpen] = useState(false);
   const [activeForum, setActiveForum] = useState("drt");
 
   // Legal Forums
@@ -178,12 +180,23 @@ export default function LegalCounselsPage() {
                 {/* Action Buttons */}
                 <div className="pt-2 flex flex-wrap items-center gap-3">
 
+                  {/* 🚀 NEW: EMPANEL AS RECOVERY COUNSEL */}
+                  <button
+                    type="button"
+                    onClick={() => setIsEmpanelOpen(true)}
+                    className="inline-flex items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 px-6 py-3.5 text-xs font-bold text-white shadow-lg shadow-blue-900/30 active:scale-95 transition-all cursor-pointer"
+                  >
+                    <Scale className="h-4 w-4 text-blue-200" />
+                    <span>Empanel as Recovery Counsel</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => setIsDemoOpen(true)}
                     className="inline-flex items-center gap-2 rounded-xl bg-[#E05320] px-6 py-3.5 text-xs font-bold text-white shadow-lg shadow-[#E05320]/25 hover:bg-[#C84518] active:scale-95 transition-all cursor-pointer"
                   >
-                    <span>Request Legal Practice Walkthrough</span>
+                    <span>Request Practice Walkthrough</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </button>
 
@@ -192,7 +205,7 @@ export default function LegalCounselsPage() {
                     className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-5 py-3.5 text-xs font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm"
                   >
                     <Scale className="h-3.5 w-3.5 text-indigo-500" />
-                    <span>Open Advocate Panel Workspace &rarr;</span>
+                    <span>Panel Workspace &rarr;</span>
                   </Link>
                 </div>
 
@@ -755,14 +768,24 @@ export default function LegalCounselsPage() {
               Automate DRT, NCLT, and SARFAESI workflows with real-time e-Courts synchronization and seamless bank communication.
             </p>
 
-            <div className="pt-2 flex justify-center gap-3">
+            <div className="pt-2 flex flex-wrap justify-center gap-3">
+
+              <button
+                type="button"
+                onClick={() => setIsEmpanelOpen(true)}
+                className="inline-flex items-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 px-7 py-3.5 text-xs font-bold text-white shadow-xl shadow-blue-900/40 active:scale-95 transition-all cursor-pointer"
+              >
+                <Scale className="h-4 w-4 text-blue-200" />
+                <span>Empanel as Recovery Counsel</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </button>
 
               <button
                 type="button"
                 onClick={() => setIsDemoOpen(true)}
                 className="inline-flex items-center gap-2 rounded-xl bg-[#E05320] px-7 py-3.5 text-xs font-bold text-white shadow-xl hover:bg-[#C84518] active:scale-95 transition-all cursor-pointer"
               >
-                <span>Schedule Legal Practice Walkthrough</span>
+                <span>Schedule Practice Walkthrough</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </button>
 
@@ -779,6 +802,12 @@ export default function LegalCounselsPage() {
       <DemoModal
         isOpen={isDemoOpen}
         onClose={() => setIsDemoOpen(false)}
+      />
+
+      {/* 11. 🚀 ADVOCATE EMPANELMENT MODAL */}
+      <AdvocateEmpanelmentModal
+        isOpen={isEmpanelOpen}
+        onClose={() => setIsEmpanelOpen(false)}
       />
 
     </div>

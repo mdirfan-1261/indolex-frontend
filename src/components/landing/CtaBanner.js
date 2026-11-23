@@ -32,8 +32,25 @@ export default function CtaBanner({ onOpenDemo }) {
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3.5">
           <button
             type="button"
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.dispatchEvent(new CustomEvent('open-claim-modal'));
+              }
+            }}
+            className="inline-flex items-center gap-2 rounded-xl border border-amber-400/40 bg-gradient-to-r from-amber-600/90 to-amber-700/90 hover:from-amber-500 hover:to-amber-600 px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-bold text-white transition-all shadow-lg shadow-amber-900/30 cursor-pointer active:scale-95"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+            <span>Submit Debt Claim</span>
+            <ArrowRight className="h-3.5 w-3.5 text-amber-200" />
+          </button>
+
+          <button
+            type="button"
             onClick={onOpenDemo}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#E05320] px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-md shadow-[#E05320]/25 hover:bg-[#C84518] active:scale-95 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#E05320] px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-md shadow-[#E05320]/25 hover:bg-[#C84518] active:scale-95 transition-all cursor-pointer"
           >
             <span>Schedule Institutional Briefing</span>
             <ArrowRight className="h-4 w-4" />

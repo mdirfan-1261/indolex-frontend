@@ -1,4 +1,5 @@
 import './globals.css';
+import { Suspense } from 'react';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { AuthProvider } from '@/context/AuthContext';
 import HeaderContainer from '@/components/landing/HeaderContainer';
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen bg-white text-slate-900 antialiased dark:bg-[#071326] dark:text-slate-100">
         <ThemeProvider>
           <AuthProvider>
-            <HeaderContainer />
+            <Suspense fallback={<div className="h-14 sm:h-16 border-b border-slate-200 dark:border-slate-800" />}>
+              <HeaderContainer />
+            </Suspense>
             {children}
           </AuthProvider>
         </ThemeProvider>

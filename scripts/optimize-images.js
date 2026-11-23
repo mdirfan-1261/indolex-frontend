@@ -3,8 +3,15 @@ const fs = require("fs");
 const path = require("path");
 const sharp = require("sharp");
 
-const publicDir = path.join(process.cwd(), "public");
-const extensions = [".jpg", ".jpeg", ".png"];
+// ONLY services folder
+const targetDir = path.join(
+  process.cwd(),
+  "public",
+  "images",
+  "services"
+);
+
+const extensions = [".jpg", ".jpeg"];
 
 async function getImages(directory) {
   const entries = await fs.promises.readdir(directory, {
@@ -29,27 +36,28 @@ async function getImages(directory) {
 }
 
 async function optimizeImages() {
-  const images = await getImages(publicDir);
+  if (!fs.existsSync(targetDir)) {
+    throw new Error("Services images folder not found!");
+  }
+
+  const images = await getImages(targetDir);
 
   let originalTotal = 0;
   let optimizedTotal = 0;
   let success = 0;
 
-  console.log(`Found ${images.length} images.\n`);
+  console.log(`Found ${images.length} service images.\n`);
 
   for (const imagePath of images) {
     try {
-      const outputPath = imagePath.replace(
-        /\.(jpg|jpeg|png)$/i,
-        ".webp"
-      );
+      const outputPath = imagePath.replace(/\.(jpg|jpeg)$/i, ".webp");
 
       const originalSize = (await fs.promises.stat(imagePath)).size;
 
       await sharp(imagePath)
         .rotate()
         .webp({
-          quality: 80,
+          quality: 82,
           effort: 5,
           smartSubsample: true,
         })
@@ -66,7 +74,7 @@ async function optimizeImages() {
       ).toFixed(1);
 
       console.log(
-        `${path.relative(publicDir, imagePath)} | ` +
+        `${path.relative(targetDir, imagePath)} | ` +
         `${(originalSize / 1024).toFixed(1)} KB → ` +
         `${(optimizedSize / 1024).toFixed(1)} KB | Saved ${saved}%`
       );
@@ -75,7 +83,7 @@ async function optimizeImages() {
     }
   }
 
-  console.log("\n========== OPTIMIZATION SUMMARY ==========");
+  console.log("\n========== SERVICES IMAGE SUMMARY ==========");
   console.log(`Successful: ${success}/${images.length}`);
   console.log(`Original: ${(originalTotal / 1024 / 1024).toFixed(2)} MB`);
   console.log(`WebP: ${(optimizedTotal / 1024 / 1024).toFixed(2)} MB`);
@@ -86,7 +94,7 @@ async function optimizeImages() {
     );
   }
 
-  console.log("Original images have NOT been deleted.");
+  console.log("Original JPG images have NOT been deleted.");
 }
 
 optimizeImages().catch(console.error);

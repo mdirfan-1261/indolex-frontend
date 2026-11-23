@@ -1,20 +1,21 @@
-
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  ArrowRight,
-  ShieldCheck,
-  Scale,
-  Landmark,
-  ChevronRight,
-} from 'lucide-react';
+import { ArrowRight, Scale, ChevronRight } from 'lucide-react';
 
 import { useAuth } from '@/context/AuthContext';
 
-export default function Hero({ onOpenDemo }) {
+export default function Hero({ onOpenDemo, onOpenClaim }) {
   const { isAuthenticated, loading } = useAuth();
+
+  const handleClaimClick = () => {
+    if (onOpenClaim) {
+      onOpenClaim();
+    } else if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('open-claim-modal'));
+    }
+  };
 
   // Smooth scroll without changing URL hash
   const handleExploreScroll = () => {
@@ -25,11 +26,13 @@ export default function Hero({ onOpenDemo }) {
     }
   };
 
-  return (
-    <section className="relative isolate flex min-h-[540px] items-center overflow-hidden bg-[#0A1322] py-7 text-white sm:min-h-[calc(100vh-110px)] sm:py-14 lg:py-16">
+  const focusRing =
+    'focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A1322]';
 
-      {/* BACKGROUND IMAGE */}
-            {/* OPTIMIZED HERO IMAGE */}
+  return (
+    <section className="relative isolate flex min-h-[500px] items-center overflow-hidden bg-[#0A1322] py-10 text-white sm:min-h-[calc(100vh-110px)] sm:py-16 lg:py-20">
+
+      {/* OPTIMIZED HERO IMAGE */}
       <Image
         src="/indolex_hero.webp"
         alt=""
@@ -41,110 +44,79 @@ export default function Hero({ onOpenDemo }) {
         className="absolute inset-0 -z-20 object-cover object-[65%_center] opacity-85 sm:object-center sm:opacity-90"
       />
 
-      {/* MOBILE IMAGE OVERLAY */}
-      <div className="absolute inset-0 -z-10 bg-[#07101F]/10 sm:hidden" />
-
-      {/* BACKGROUND GRADIENT OVERLAY */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070D18]/80 via-[#070D18]/55 to-[#070D18]/25 sm:from-[#070D18]/90 sm:via-[#070D18]/45 sm:to-black/20" />
-
-      {/* BOTTOM GRADIENT */}
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-16 bg-gradient-to-t from-[#0A1322]/75 to-transparent sm:h-20 sm:from-[#0A1322]/90" />
+      {/* READABILITY OVERLAYS */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070D18]/90 via-[#070D18]/60 to-[#070D18]/25 sm:from-[#070D18]/92 sm:via-[#070D18]/50 sm:to-black/20" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0A1322]/80 via-transparent to-transparent" />
 
       {/* CONTENT */}
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
 
           {/* TOP BADGE */}
-          <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 backdrop-blur-md sm:mb-5 sm:px-3.5">
-
-            <span className="h-1.5 w-1.5 shrink-0 animate-pulse rounded-full bg-amber-400" />
-
-            <span className="text-[9px] font-semibold uppercase tracking-wide text-amber-100 sm:text-[11px]">
-              India's Institutional Legal & NPA Resolution Platform
+          <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/10 px-3 py-1 backdrop-blur-md sm:mb-5">
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400" />
+            <span className="truncate text-[10px] font-medium tracking-wide text-amber-100 sm:text-[11.5px]">
+              India&apos;s Institutional Legal &amp; NPA Resolution Platform
             </span>
           </div>
 
           {/* MAIN HEADING */}
-          <h1 className="text-[28px] font-light leading-[1.13] tracking-tight text-white sm:text-4xl sm:leading-[1.2] lg:text-[44px]">
+          <h1 className="text-balance text-[28px] font-light leading-[1.14] tracking-tight text-white sm:text-4xl sm:leading-[1.15] lg:text-[46px]">
             Trusted Legal Intelligence That Best Unifies{' '}
-            <span className="font-serif font-normal italic text-amber-100/95">
+            <span className="font-serif font-normal italic text-amber-100">
               Bank Recovery
             </span>{' '}
             and Corporate Law
           </h1>
 
           {/* DESCRIPTION */}
-          <p className="mt-3 max-w-xl text-[13px] font-normal leading-[1.65] text-slate-100 sm:mt-4 sm:text-base sm:leading-relaxed sm:text-slate-300">
-            Automate SARFAESI notices, monitor DRT & NCLT proceedings, and
+          <p className="mt-3.5 max-w-xl text-[13.5px] leading-[1.65] text-slate-200 sm:mt-4 sm:text-base sm:leading-relaxed sm:text-slate-300">
+            Automate SARFAESI notices, monitor DRT &amp; NCLT proceedings, and
             coordinate empanelled advocates through one synchronized,
             RBI-aligned operating system.
           </p>
 
           {/* ACTION BUTTONS */}
-          <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-7 sm:gap-3.5">
+          <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-3">
 
-            {/* REQUEST DEMO */}
+            {/* ASSESS RECOVERY CLAIM BUTTON (HIGH CONVERSION) */}
+            <button
+              type="button"
+              onClick={handleClaimClick}
+              className={`col-span-2 inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-amber-300/30 bg-gradient-to-b from-amber-500 to-orange-600 px-6 text-[13px] font-semibold text-white shadow-lg shadow-orange-700/30 ring-1 ring-inset ring-white/15 transition-all hover:from-amber-400 hover:to-orange-500 active:scale-[0.99] cursor-pointer sm:col-span-1 sm:text-sm ${focusRing}`}
+            >
+              <span>Assess Debt Recovery Claim</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
+
+            {/* SCHEDULE BANK BRIEFING / DEMO */}
             <button
               type="button"
               onClick={onOpenDemo}
-              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-[#E05320] px-4 py-2.5 text-[11px] font-semibold text-white shadow-md shadow-[#E05320]/25 transition-all hover:bg-[#C84518] hover:shadow-[#E05320]/40 active:scale-[0.99] sm:min-h-11 sm:rounded-xl sm:px-6 sm:py-3 sm:text-sm"
+              className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 text-[12.5px] font-medium text-white backdrop-blur-md transition-all hover:bg-white/15 active:scale-[0.99] cursor-pointer sm:px-5 sm:text-sm ${focusRing}`}
             >
-              <span>Request a Demo</span>
-              <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              <span>Schedule Bank Briefing</span>
             </button>
 
             {/* DASHBOARD / EXPLORE BUTTON */}
             {!loading && isAuthenticated ? (
               <Link
                 href="/dashboard"
-                className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-lg border border-sky-400/40 bg-sky-500/20 px-3.5 py-2.5 text-[11px] font-semibold text-sky-100 backdrop-blur-sm transition-all hover:bg-sky-500/30 hover:text-white sm:min-h-11 sm:rounded-xl sm:px-5 sm:py-3 sm:text-sm"
+                className={`inline-flex h-11 items-center justify-center gap-1.5 rounded-xl border border-sky-400/40 bg-sky-500/15 px-4 text-[12.5px] font-medium text-sky-100 backdrop-blur-md transition-all hover:bg-sky-500/25 hover:text-white sm:px-5 sm:text-sm ${focusRing}`}
               >
-                <Scale className="h-3.5 w-3.5 shrink-0 text-sky-300 sm:h-4 sm:w-4" />
-
+                <Scale className="h-4 w-4 shrink-0 text-sky-300" />
                 <span>Enter SARG Dashboard</span>
-
-                <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
               </Link>
             ) : (
               <button
                 type="button"
                 onClick={handleExploreScroll}
-                className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-lg border border-slate-400/60 bg-slate-950/20 px-3.5 py-2.5 text-[11px] font-medium text-white backdrop-blur-sm transition-all hover:border-slate-300 hover:bg-white/10 sm:min-h-11 sm:rounded-xl sm:px-5 sm:py-3 sm:text-sm"
+                className={`inline-flex h-11 items-center justify-center gap-1 rounded-xl px-3 text-[12.5px] font-medium text-slate-200 transition-colors hover:text-white cursor-pointer sm:px-4 sm:text-sm ${focusRing}`}
               >
                 <span>Explore Platform</span>
-
-                <ChevronRight className="h-3.5 w-3.5 text-slate-200 sm:h-4 sm:w-4" />
+                <ChevronRight className="h-4 w-4" />
               </button>
             )}
-
-          </div>
-
-          {/* TRUST BADGES */}
-          <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-3 border-t border-white/20 pt-4 text-[10px] text-slate-200 sm:mt-8 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-2 sm:pt-6 sm:text-xs sm:text-slate-400">
-
-            <div className="flex min-w-0 items-center gap-1.5">
-              <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-emerald-400 sm:h-4 sm:w-4" />
-
-              <span className="leading-tight">
-                SARFAESI 13(2) & 13(4) Aligned
-              </span>
-            </div>
-
-            <div className="flex min-w-0 items-center gap-1.5">
-              <Scale className="h-3.5 w-3.5 shrink-0 text-amber-400 sm:h-4 sm:w-4" />
-
-              <span className="leading-tight">
-                DRT & NCLT Judicial Docket
-              </span>
-            </div>
-
-            <div className="col-span-2 flex min-w-0 items-center gap-1.5 sm:col-span-1">
-              <Landmark className="h-3.5 w-3.5 shrink-0 text-sky-400 sm:h-4 sm:w-4" />
-
-              <span className="leading-tight">
-                PSU & Private Banks
-              </span>
-            </div>
 
           </div>
         </div>
