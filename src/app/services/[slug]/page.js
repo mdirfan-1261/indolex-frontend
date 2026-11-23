@@ -437,7 +437,7 @@ const SERVICES_DATA = {
   'rent-lease-recovery': {
     num: '07',
     code: 'JUR-07',
-    heroImage: '/images/services/domains/rent-lease-recovery.jpg',
+    heroImage: '/images/services/domains/rent-lease-recovery.webp',
     title: 'Commercial Tenancy, Lease Arrears & Eviction',
     subtitle: 'Recovery of Outstanding Commercial Rent, Warehouse Lease Arrears & Asset Possession',
     badge: 'Commercial Tenancy & Leases',
@@ -502,7 +502,7 @@ const SERVICES_DATA = {
   'commercial-advances': {
     num: '08',
     code: 'JUR-08',
-    heroImage: '/images/services/domains/commercial-advances.jpg',
+    heroImage: '/images/services/domains/commercial-advances.webp',
     title: 'Commercial Advances & Business Debts',
     subtitle: 'Recovery of Unreturned Supplier Advances, ICDs & Commercial Loans',
     badge: 'Commercial Advances',
@@ -567,7 +567,7 @@ const SERVICES_DATA = {
   'disputed-part-acknowledged': {
     num: '09',
     code: 'JUR-09',
-    heroImage: '/images/services/domains/disputed-part-acknowledged.jpg',
+    heroImage: '/images/services/domains/disputed-part-acknowledged.webp',
     title: 'Disputed Claims & Debit Note Rebuttals',
     subtitle: 'Strategic Resolution for Contested Invoices & Unilateral Quality Deductions',
     badge: 'Bilateral Conciliation',
